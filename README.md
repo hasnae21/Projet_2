@@ -4,3 +4,5 @@ La capacité du centre SOLICODE est 120 apprenants distribués sur 6 classes de 
 Dans le but de simplifier la gestion des apprenants aux formateurs de Solicode. Votre mission est de créer une application fullstack à base de Laravel et Mysql qui permet la manipulation des apprenants dans Solicode, comme indiquer sur le fichier Adobe XD ci-joint.
 ![image](https://user-images.githubusercontent.com/92023794/196162986-47a60cee-fd5a-4067-bcf7-62c6f4ed05a0.png)
 ![image](https://user-images.githubusercontent.com/92023794/196163027-ea982813-3669-47ac-8cc9-dfba4da11c62.png)
+![image](https://user-images.githubusercontent.com/92023794/196163101-b07e73e0-bbf9-4fd6-9032-6e5ce4bc823d.png)
+![image](https://user-images.githubusercontent.com/92023794/196163143-22ba1e26-92db-4609-a774-7b8ba81e55f3.png)
