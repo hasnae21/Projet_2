@@ -1,3 +1,2 @@
-# projet_2 
+# projet_2  # LARAVEL
 GESTION PROMOTION VERSION_2 
-#LARAVEL
