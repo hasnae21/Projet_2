@@ -15,7 +15,7 @@ class PromotionsController extends Controller
 
     public function index()
     {
-        
+
         $promotion= Promotion::all();
         return view('index',compact('promotion'));
     }
@@ -28,7 +28,7 @@ class PromotionsController extends Controller
 
     public function create()
     {
-    
+
         return view('add');
     }
 

@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-<table>
+<table border="1px">
     <thead>
-
+            <th>ID</th>
             <th>Name</th>
 
     </thead>
@@ -18,9 +18,10 @@
         @forelse ($promotion as $value )
 
        <tr>
+         <td>{{$value->id}}</td>
          <td>{{$value->name}}</td>
        </tr>
-       
+
        @empty
 
        @endforelse
