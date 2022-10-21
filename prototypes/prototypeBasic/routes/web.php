@@ -1,6 +1,9 @@
 <?php
+// use App\Controllers\PromotionsController;
 
+use App\Http\Controllers\PromotionsController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +21,8 @@ Route::get('/', function () {
 });
 
 
-// Route::get('/index',[promotionController::class,'index']);
-// Route::get('/form',[promotionController::class,'create']);
-// Route::post('/add',[promotionController::class,'store']);
+Route::get('/index',[PromotionsController::class,'index']);
+Route::get('/form',[PromotionsController::class,'create']);
+Route::get('/add',[PromotionsController::class,'store']);
 
-Route::resource('/promotion',promotionController::class);
+// Route::resource('/promotion',PromotionsController::class);

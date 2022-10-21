@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class promotion extends Model
+class Promotion extends Model
 {
-    // use HasFactory;
-    // protected $table ="promotions";
-    protected $fillabble =[
+    //use HasFactory;
+    protected $table ="promotions";
+    protected $fillable = [
         'name'
+
     ];
 }
