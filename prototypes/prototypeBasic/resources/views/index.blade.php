@@ -20,6 +20,7 @@
        <tr>
          <td>{{$value->name}}</td>
        </tr>
+       
        @empty
 
        @endforelse
