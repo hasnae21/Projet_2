@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class promotion extends Model
 {
-
+    // use HasFactory;
+    // protected $table ="promotions";
     protected $fillabble =[
-        'title'
+        'name'
     ];
 }
