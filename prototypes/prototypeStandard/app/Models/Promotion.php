@@ -9,8 +9,6 @@ class Promotion extends Model
 {
     // use HasFactory;
 
-    public $timestamps = false;
     protected $table = "promotions";
     protected $colone = ['name'];
-  
 }
