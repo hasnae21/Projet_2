@@ -45,7 +45,7 @@ class PromotionsController extends Controller
         $Promotion->name = $request->input("name");
         $Promotion->save();
         if ($Promotion->save()) {
-            return redirect('index');
+            return redirect('/');
         }
     }
 
@@ -92,7 +92,7 @@ class PromotionsController extends Controller
             ->update([
                 'name' => $request->name
             ]);
-        return redirect('index');
+        return redirect('/');
     }
 
     /**
@@ -107,6 +107,6 @@ class PromotionsController extends Controller
 
         $Promotion = Promotion::where('id', $id)
             ->delete();
-        return redirect('index');
+        return redirect('/');
     }
 }

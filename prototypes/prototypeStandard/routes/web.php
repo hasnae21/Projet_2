@@ -32,8 +32,6 @@ Route::get('/create', [PromotionsController::class, 'create']);
 Route::post('add',[PromotionsController::class,"store"]);
 
 
-
-///////
 Route::get('/edit/{id}',[PromotionsController::class ,"edit"]);
 
 Route::post('/update/{id}',[PromotionsController::class,"update"]);
