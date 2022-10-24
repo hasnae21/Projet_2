@@ -1,18 +1,15 @@
 <?php
-//laravelproject\app\Http\Controllers\LiveSearchController.php
- 
 namespace App\Http\Controllers;
- 
 use Illuminate\Http\Request;
+
 use DB;
- 
 class LiveSearchController extends Controller
 {
     function index()
     {
         return view('livesearch');
     }
- 
+    
     function action(Request $request)
     {
         if($request->ajax())
