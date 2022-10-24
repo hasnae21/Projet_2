@@ -1,6 +1,7 @@
 <html>
     <body>
         <a href="add_form">Ajouter une promotion</a>
+        
         <table border="1px">
             <thead>
                 <tr>
@@ -12,7 +13,6 @@
             <tbody>
                 @foreach ($promos as $value)
 
-
                 <tr>
                     <td>{{$value->id}}</td>
                     <td>{{$value->name}}</td>
@@ -21,7 +21,6 @@
                         <a href="delete/{{$value->id}}">Supprimer</a>
                     </td>
                 </tr>
-
 
                 @endforeach
             </tbody>
