@@ -15,10 +15,10 @@ use App\Http\Controllers\TutorialController;
 |
 */
 
-
 // routes de redirection et de function
 Route::post('add', [PromotionsController::class, "store"]);
 Route::post('/update/{id}', [PromotionsController::class, "update"]);
+
 Route::get('/delete/{id}', [PromotionsController::class, "destroy"]);
 
 
