@@ -23,11 +23,12 @@ Route::post('/update/{id}', [PromotionsController::class, "update"]);
 
 Route::get('/delete/{id}', [PromotionsController::class, "destroy"]);
 
-Route::get('/action', [LiveSearchController::class, 'action'])->name('action');
+// Route::get('/action', [LiveSearchController::class, 'action'])->name('action');
 
 
 // routes de pages
 // Route::get('/', [LiveSearchController::class, 'index']);
+
 Route::get('/', [PromotionsController::class, 'index']);
 Route::get('/add_form', [PromotionsController::class, 'create']);
 
