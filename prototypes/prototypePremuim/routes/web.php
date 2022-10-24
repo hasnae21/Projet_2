@@ -29,7 +29,7 @@ Route::get('/delete/{id}', [PromotionsController::class, "destroy"]);
 // routes de pages
 // Route::get('/', [LiveSearchController::class, 'index']);
 
-Route::get('/', [PromotionsController::class, 'index']);
+Route::get('/', [PromotionsController::class, 'index'])->name('action');
 Route::get('/add_form', [PromotionsController::class, 'create']);
 
 Route::get('/edit_form/{id}', [PromotionsController::class, "edit"]);
