@@ -20,17 +20,13 @@ class LiveSearchController extends Controller
             $output = '';
             $query = $request->get('query');
             if($query != '') {
-                $data = DB::table('customers')
-                    ->where('CustomerName', 'like', '%'.$query.'%')
-                    ->orWhere('Address', 'like', '%'.$query.'%')
-                    ->orWhere('City', 'like', '%'.$query.'%')
-                    ->orWhere('PostalCode', 'like', '%'.$query.'%')
-                    ->orWhere('Country', 'like', '%'.$query.'%')
-                    ->orderBy('id', 'desc')
+                $data = DB::table('promotions')
+                    ->where('name', 'like', '%'.$query.'%')
+                    ->orWhere('id', 'like', '%'.$query.'%')
                     ->get();
                     
             } else {
-                $data = DB::table('customers')
+                $data = DB::table('promotions')
                     ->orderBy('id', 'desc')
                     ->get();
             }
@@ -41,11 +37,8 @@ class LiveSearchController extends Controller
                 {
                     $output .= '
                     <tr>
-                    <td>'.$row->CustomerName.'</td>
-                    <td>'.$row->Address.'</td>
-                    <td>'.$row->City.'</td>
-                    <td>'.$row->PostalCode.'</td>
-                    <td>'.$row->Country.'</td>
+                    <td>'.$row->name.'</td>
+                    <td>'.$row->id.'</td>
                     </tr>
                     ';
                 }
