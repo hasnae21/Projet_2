@@ -24,7 +24,7 @@ class PromotionsController extends Controller
         $promo = new Promotion();
         $promo
             ->name = $request
-            ->input("name");
+            ->input("new");
         $promo
             ->save();
 

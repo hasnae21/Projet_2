@@ -6,7 +6,7 @@
 <body>
     <form action="/add" method="POST">
         @csrf
-        <input type="text" name="name">
+        <input type="text" name="new">
         <button >Ajouter</button>
     </form>
 </body>
