@@ -23,17 +23,17 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/index', [PromotionController::class, 'index']);
+Route::get('/index', [PromotionsController::class, 'index']);
 
-Route::get('/create', [PromotionController::class, 'create']);
+Route::get('/create', [PromotionsController::class, 'create']);
 
-Route::post('add',[PromotionController::class,"store"]);
+Route::post('add',[PromotionsController::class,"store"]);
 
 
 
 ///////
-Route::get('/edit/{id}',[PromotionController::class ,"edit"]);
+Route::get('/edit/{id}',[PromotionsController::class ,"edit"]);
 
-Route::post('/update/{id}',[PromotionController::class,"update"]);
+Route::post('/update/{id}',[PromotionsController::class,"update"]);
 
-Route::get('/delete/{id}',[PromotionController::class,"destroy"]);
+Route::get('/delete/{id}',[PromotionsController::class,"destroy"]);

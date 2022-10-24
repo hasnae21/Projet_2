@@ -5,7 +5,7 @@
     <form action="{{url('modifier')}}/{{$value->id}}" method="POST">
         @csrf
 
-        <input type="text" value="{{$value->name_promotion}}" name="name">
+        <input type="text" value="{{$value->name}}" name="name">
         <button >Ajouter</button>
     </form>
 </body>

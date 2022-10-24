@@ -14,7 +14,7 @@
 
                 <tr>
                     <td>{{$value->id}}</td>
-                    <td>{{$value->name_promotion}}</td>
+                    <td>{{$value->name}}</td>
                     <td>
                         <a href="edit/{{$value->id}}" class="btn btn-success">Modifier</a>
                         <a href="supprimer/{{$value->id}}" class="btn btn-success">Supprimer</a>

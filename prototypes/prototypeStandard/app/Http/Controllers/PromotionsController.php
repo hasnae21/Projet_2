@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\promotion;
+use App\Models\Promotion;
 
 
 class PromotionsController extends Controller
@@ -17,7 +17,7 @@ class PromotionsController extends Controller
     {
         // afichage des donnees 
 
-        $table = promotion::all();
+        $table = Promotion::all();
         return view("index", compact("table"));
     }
 
@@ -41,10 +41,10 @@ class PromotionsController extends Controller
     {
         // ajouter des donnees
 
-        $promotion = new promotion();
-        $promotion->name_promotion = $request->input("name");
-        $promotion->save();
-        if ($promotion->save()) {
+        $Promotion = new Promotion();
+        $Promotion->name = $request->input("name");
+        $Promotion->save();
+        if ($Promotion->save()) {
             return redirect('index');
         }
     }
@@ -57,12 +57,13 @@ class PromotionsController extends Controller
      */
     public function show($id)
     {
-        //
-        //   $promotion = promotion::where('id',$id)
-        //   ->get();
-        //   return view('edit',compact('promotion'));
 
+        $Promotion = Promotion::where('id', $id)
+            ->get();
+        return view('edit', compact('Promotion'));
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -72,14 +73,11 @@ class PromotionsController extends Controller
      */
     public function edit($id)
     {
-        //
-        //  $promotion = promotion::where('id',$id)
-        //  ->update([
-        //     'name_promotion'=>$request->name
-        //  ]);
-        //  return redirect('index');
-    }
 
+        $promotion = promotion::where('id', $id)
+            ->get();
+        return view('edit', compact('promotion'));
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -89,12 +87,12 @@ class PromotionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        //  $promotion = promotion::where('id',$id)
-        //  ->update([
-        //     'name_promotion'=>$request->name
-        //  ]);
-        //  return redirect('index');
+
+        $promotion = promotion::where('id', $id)
+            ->update([
+                'name' => $request->name
+            ]);
+        return redirect('index');
     }
 
     /**
@@ -105,10 +103,10 @@ class PromotionsController extends Controller
      */
     public function destroy($id)
     {
-        //
-        //     $promotion = promotion::where('id',$id)
-        //     ->delete();
-        //     return redirect('index');
+        //delete
+
+        $Promotion = Promotion::where('id', $id)
+            ->delete();
+        return redirect('index');
     }
 }
-
