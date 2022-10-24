@@ -1,6 +1,6 @@
 <html>
     <body>
-        <a href="create">Ajouter une promotion</a>
+        <a href="add_form">Ajouter une promotion</a>
         <table>
             <thead>
                 <tr>
@@ -16,7 +16,7 @@
                     <td>{{$value->id}}</td>
                     <td>{{$value->name}}</td>
                     <td>
-                        <a href="edit/{{$value->id}}" class="btn btn-success">Modifier</a>
+                        <a href="edit_form/{{$value->id}}" class="btn btn-success">Modifier</a>
                         <a href="delete/{{$value->id}}" class="btn btn-success">Supprimer</a>
                     </td>
                 </tr>
