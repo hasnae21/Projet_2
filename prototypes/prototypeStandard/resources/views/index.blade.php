@@ -10,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($promo as $value)
+                @foreach ($promos as $value)
 
 
                 <tr>
