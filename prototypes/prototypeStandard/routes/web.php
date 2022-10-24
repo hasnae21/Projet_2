@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/promotion',PromotionsController::class);
+// Route::resource('/promotion',PromotionsController::class);
