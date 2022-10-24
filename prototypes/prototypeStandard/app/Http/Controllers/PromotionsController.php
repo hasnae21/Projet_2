@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\promotion;
+
 
 class PromotionsController extends Controller
 {
@@ -13,7 +15,10 @@ class PromotionsController extends Controller
      */
     public function index()
     {
-        //
+        // afichage des donnees 
+
+        $table = promotion::all();
+        return view("index", compact("table"));
     }
 
     /**
@@ -23,7 +28,7 @@ class PromotionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -34,7 +39,14 @@ class PromotionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // ajouter des donnees
+
+        $promotion = new promotion();
+        $promotion->name_promotion = $request->input("name");
+        $promotion->save();
+        if ($promotion->save()) {
+            return redirect('index');
+        }
     }
 
     /**
@@ -46,6 +58,10 @@ class PromotionsController extends Controller
     public function show($id)
     {
         //
+        //   $promotion = promotion::where('id',$id)
+        //   ->get();
+        //   return view('edit',compact('promotion'));
+
     }
 
     /**
@@ -57,6 +73,11 @@ class PromotionsController extends Controller
     public function edit($id)
     {
         //
+        //  $promotion = promotion::where('id',$id)
+        //  ->update([
+        //     'name_promotion'=>$request->name
+        //  ]);
+        //  return redirect('index');
     }
 
     /**
@@ -69,6 +90,11 @@ class PromotionsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        //  $promotion = promotion::where('id',$id)
+        //  ->update([
+        //     'name_promotion'=>$request->name
+        //  ]);
+        //  return redirect('index');
     }
 
     /**
@@ -80,5 +106,9 @@ class PromotionsController extends Controller
     public function destroy($id)
     {
         //
+        //     $promotion = promotion::where('id',$id)
+        //     ->delete();
+        //     return redirect('index');
     }
 }
+
