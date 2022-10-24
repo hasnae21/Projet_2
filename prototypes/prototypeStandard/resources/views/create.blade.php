@@ -4,7 +4,7 @@
 
 </head>
 <body>
-    <form action="ajouter" method="POST">
+    <form action="/add" method="POST">
         @csrf
         <input type="text" name="name">
         <button >Ajouter</button>

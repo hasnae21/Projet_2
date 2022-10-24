@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PromotionsController;
+use App\Http\Controllers\TutorialController;
 
 /*
 |--------------------------------------------------------------------------

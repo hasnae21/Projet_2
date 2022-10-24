@@ -17,7 +17,7 @@
                     <td>{{$value->name}}</td>
                     <td>
                         <a href="edit/{{$value->id}}" class="btn btn-success">Modifier</a>
-                        <a href="supprimer/{{$value->id}}" class="btn btn-success">Supprimer</a>
+                        <a href="delete/{{$value->id}}" class="btn btn-success">Supprimer</a>
                     </td>
                 </tr>
                 @endforeach

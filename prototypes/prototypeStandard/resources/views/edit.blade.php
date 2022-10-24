@@ -2,7 +2,7 @@
 
 
 <body>
-    <form action="{{url('modifier')}}/{{$value->id}}" method="POST">
+    <form action="{{url('update')}}/{{$value->id}}" method="POST">
         @csrf
 
         <input type="text" value="{{$value->name}}" name="name">
