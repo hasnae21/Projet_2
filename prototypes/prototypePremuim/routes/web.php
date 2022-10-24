@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PromotionsController;
+use App\Http\Controllers\TutorialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// routes de redirection et de function
+Route::post('add', [PromotionsController::class, "store"]);
+Route::post('/update/{id}', [PromotionsController::class, "update"]);
+
+Route::get('/delete/{id}', [PromotionsController::class, "destroy"]);
+
+
+// routes de pages
+Route::get('/', [PromotionsController::class, 'index']);
+Route::get('/add_form', [PromotionsController::class, 'create']);
+
+Route::get('/edit_form/{id}', [PromotionsController::class, "edit"]);
