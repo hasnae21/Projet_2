@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Promotion;
 
@@ -11,19 +12,15 @@ class PromotionsController extends Controller
     public function index()
     {
         // afichage des donnees 
-
         $table = Promotion::all();
         return view("index", compact("table"));
     }
 
-
     public function create()
     {
         // creation des donnees 
-
         return view('create');
     }
-
 
     public function store(Request $request)
     {
@@ -36,14 +33,13 @@ class PromotionsController extends Controller
         }
     }
 
-
+    // modifier
     public function edit($id)
     {
         $promotion = Promotion::where('id', $id)
             ->get();
         return view('edit', compact('promotion'));
     }
-
 
     public function update(Request $request, $id)
     {
@@ -53,13 +49,11 @@ class PromotionsController extends Controller
             ]);
         return redirect('/');
     }
-
-
+    // suprimer
     public function destroy($id)
     {
         $promotion = Promotion::where('id', $id)
             ->delete();
         return redirect('/');
     }
-    
 }
