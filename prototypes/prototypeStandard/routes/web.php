@@ -15,25 +15,17 @@ use App\Http\Controllers\TutorialController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::resource('/promotion',PromotionsController::class);
 
 
-
-
-
-Route::get('/', [PromotionsController::class, 'index']);
-
-Route::get('/create', [PromotionsController::class, 'create']);
-
+// routes de redirection et de function
 Route::post('add',[PromotionsController::class,"store"]);
+Route::post('/update/{id}',[PromotionsController::class,"update"]);
+Route::get('/delete/{id}',[PromotionsController::class,"destroy"]);
 
 
+
+// routes de pages
+Route::get('/', [PromotionsController::class, 'index']);
+Route::get('/create', [PromotionsController::class, 'create']);
 Route::get('/edit/{id}',[PromotionsController::class ,"edit"]);
 
-Route::post('/update/{id}',[PromotionsController::class,"update"]);
-
-Route::get('/delete/{id}',[PromotionsController::class,"destroy"]);

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Promotion;
 
@@ -28,6 +27,8 @@ class PromotionsController extends Controller
      */
     public function create()
     {
+        // creation des donnees 
+
         return view('create');
     }
 
@@ -39,12 +40,11 @@ class PromotionsController extends Controller
      */
     public function store(Request $request)
     {
-        // ajouter des donnees
+        $promotion = new Promotion();
+        $promotion->name = $request->input("name");
+        $promotion->save();
 
-        $Promotion = new Promotion();
-        $Promotion->name = $request->input("name");
-        $Promotion->save();
-        if ($Promotion->save()) {
+        if ($promotion->save()) {
             return redirect('/');
         }
     }
@@ -55,29 +55,13 @@ class PromotionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-
-        $Promotion = Promotion::where('id', $id)
-            ->get();
-        return view('edit', compact('Promotion'));
-    }
-
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-
-        $promotion = promotion::where('id', $id)
+        $promotion = Promotion::where('id', $id)
             ->get();
         return view('edit', compact('promotion'));
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -87,8 +71,7 @@ class PromotionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $promotion = promotion::where('id', $id)
+        $promotion = Promotion::where('id', $id)
             ->update([
                 'name' => $request->name
             ]);
@@ -103,9 +86,7 @@ class PromotionsController extends Controller
      */
     public function destroy($id)
     {
-        //delete
-
-        $Promotion = Promotion::where('id', $id)
+        $promotion = Promotion::where('id', $id)
             ->delete();
         return redirect('/');
     }
