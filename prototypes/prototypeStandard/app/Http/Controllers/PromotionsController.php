@@ -12,14 +12,11 @@ class PromotionsController extends Controller
     public function index()
     {
         // afichage des donnees 
-        $table = Promotion::all();
-        return view("index", compact("table"));
-    }
-
-    public function create()
-    {
-        // creation des donnees 
-        return view('create');
+        $promo = Promotion::all();
+        return view(
+            'index',
+            compact("promo")
+        );
     }
 
     public function store(Request $request)
@@ -32,27 +29,33 @@ class PromotionsController extends Controller
             return redirect('/');
         }
     }
+    public function create()
+    {
+        // creation des donnees 
+        return view('create');
+    }
 
     // modifier
     public function edit($id)
     {
-        $promotion = Promotion::where('id', $id)
+        $promo = Promotion::where('id', $id)
             ->get();
-        return view('edit', compact('promotion'));
+        return view(
+            'edit',
+            compact('promo')
+        );
     }
-
     public function update(Request $request, $id)
     {
-        $promotion = Promotion::where('id', $id)
-            ->update([
-                'name' => $request->name
-            ]);
+        Promotion::where('id', $id)
+            ->update(['name' => $request->name]);
         return redirect('/');
     }
+
     // suprimer
     public function destroy($id)
     {
-        $promotion = Promotion::where('id', $id)
+        Promotion::where('id', $id)
             ->delete();
         return redirect('/');
     }

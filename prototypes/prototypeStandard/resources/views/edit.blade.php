@@ -1,4 +1,4 @@
-@foreach ($promotion as $value)
+@foreach ($promo as $value)
 
 
 <body>

@@ -9,6 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class Promotion extends Model
 {
     // use HasFactory;
-    protected $table = "promotions";
+    protected $promo = "promotions";
     protected $colone = ['name'];
 }
