@@ -25,7 +25,7 @@ use App\Http\Controllers\TutorialController;
 
 
 
-Route::get('/index', [PromotionsController::class, 'index']);
+Route::get('/', [PromotionsController::class, 'index']);
 
 Route::get('/create', [PromotionsController::class, 'create']);
 
