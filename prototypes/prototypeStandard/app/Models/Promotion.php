@@ -11,8 +11,6 @@ class Promotion extends Model
 
     public $timestamps = false;
     protected $table = "promotions";
-    protected $colone = [
-        'name'
-    ];
+    protected $colone = ['name'];
   
 }
