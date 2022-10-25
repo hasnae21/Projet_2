@@ -1,4 +1,7 @@
 <html>
+    <head>
+        <title>Home</title>
+    </head>
     <body>
         <a href="add_form">Ajouter une promotion</a>
         
@@ -26,4 +29,5 @@
             </tbody>
         </table>
     </body>
+    <script src="{{asset('ajax/script.js')}}"></script>
 </html>
