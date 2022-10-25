@@ -22,7 +22,7 @@ Route::post('/update/{id}', [PromotionsController::class, "update"]);
 
 Route::get('/delete/{id}', [PromotionsController::class, "destroy"]);
 
-// Route::get('/action', [LiveSearchController::class, 'action'])->name('action');
+Route::get('/action', [PromotionsController::class, 'action'])->name('action');
 
 
 
@@ -32,7 +32,7 @@ Route::get('/delete/{id}', [PromotionsController::class, "destroy"]);
 // Route::get('/', [LiveSearchController::class, 'index']);
 
 Route::get('/', [PromotionsController::class, 'index']);
-// ->name('action');
+    // ->name('action');
 
 Route::get('/add_form', [PromotionsController::class, 'create']);
 

@@ -3,9 +3,10 @@
         <title>Home</title>
         <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     </head>
+
     <body>
         <a href="add_form">Ajouter une promotion</a>
-        
+        <input type="text" name="search" id="search" placeholder="Rechercher une Promotion" />
         <table border="1px">
             <thead>
                 <tr>
@@ -15,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($promos as $value)
+                {{-- @foreach ($promos as $value)
 
                 <tr>
                     <td>{{$value->id}}</td>
@@ -26,10 +27,11 @@
                     </td>
                 </tr>
 
-                @endforeach
+                @endforeach --}}
             </tbody>
         </table>
     </body>
 
     <script src="{{asset('ajax/script.js')}}"></script>
+
 </html>
