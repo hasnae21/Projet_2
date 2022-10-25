@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Home</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     </head>
     <body>
         <a href="add_form">Ajouter une promotion</a>
@@ -29,5 +30,6 @@
             </tbody>
         </table>
     </body>
+
     <script src="{{asset('ajax/script.js')}}"></script>
 </html>
