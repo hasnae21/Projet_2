@@ -5,6 +5,8 @@
     </head>
 
     <body>
+        <h3>Liste des Promotions a SOLICODE </h3><br />
+        <h2>Search Promotion Total Data : <span id="total_records"></span></h2>
         <a href="add_form">Ajouter une promotion</a>
         <input type="text" name="search" id="search" placeholder="Rechercher une Promotion" />
         <table border="1px">
@@ -16,7 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($promos as $value)
+                @foreach ($promos as $value)
 
                 <tr>
                     <td>{{$value->id}}</td>
@@ -27,11 +29,11 @@
                     </td>
                 </tr>
 
-                @endforeach --}}
+                @endforeach
             </tbody>
         </table>
+        <script src="{{asset('ajax/script.js')}}"></script>
     </body>
 
-    <script src="{{asset('ajax/script.js')}}"></script>
 
 </html>

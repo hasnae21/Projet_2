@@ -8,7 +8,6 @@ use App\Models\Promotion;
 
 use DB;
 
-
 class PromotionsController extends Controller
 {
 
@@ -76,8 +75,10 @@ class PromotionsController extends Controller
     //     return view('index');
     // }
 
-    function action(Request $request)
+
+    public function action(Request $request)
     {
+
         if ($request->ajax()) {
             $output = '';
             $query = $request->get('query');
@@ -120,5 +121,5 @@ class PromotionsController extends Controller
         }
     }
 
-    
+
 }
