@@ -75,7 +75,6 @@ class PromotionsController extends Controller
     //     return view('index');
     // }
 
-
     public function action(Request $request)
     {
 
