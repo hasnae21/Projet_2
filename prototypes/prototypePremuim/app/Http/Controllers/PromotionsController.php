@@ -7,6 +7,7 @@ use App\Models\Promotion;
 
 use DB;
 
+
 class PromotionsController extends Controller
 {
 
