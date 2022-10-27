@@ -61,3 +61,5 @@ Home
         {{ $data->links() }}
 </div>
 @endsection
+
+<!--  -->
