@@ -15,7 +15,5 @@ New Promotion
         <span>{{$message}}</span>
         @enderror
     </div>
-    
-    </form>
 
 @endsection
