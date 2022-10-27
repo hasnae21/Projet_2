@@ -6,14 +6,16 @@ New Promotion
 @section('content')
 
     <form action="/add" method="POST">
-        @csrf
-        <input type="text" name="new" required>
+    @csrf
+        <input type="text" id="new" name="new">
         <button >Ajouter</button>
 
-        <!-- @error('new')
+    <div style="color:red;">
+        @error('new')
         <span>{{$message}}</span>
-        @enderror -->
-
+        @enderror
+    </div>
+    
     </form>
 
 @endsection

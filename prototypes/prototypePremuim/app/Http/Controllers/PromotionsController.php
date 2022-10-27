@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Promotion;
+use App\Http\Requests\CreatePrmotionRequest;
 
 
 class PromotionsController extends Controller
@@ -24,8 +25,8 @@ class PromotionsController extends Controller
     {
         return view('create');
     }
-    
-    public function store(Request $request)
+
+    public function store(CreatePrmotionRequest $request)
     {
         $promo = new Promotion();
         $promo
@@ -34,7 +35,7 @@ class PromotionsController extends Controller
         $promo
             ->save();
 
-        return redirect('/')->with(['succes'=>'Added successfully']);
+        return redirect('/')->with(['success'=>'La promotion est bien ajouter']);
     }
 
     // modifier Promotion
