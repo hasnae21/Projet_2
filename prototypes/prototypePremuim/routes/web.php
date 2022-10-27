@@ -21,6 +21,7 @@ Route::post('/update/{id}', [PromotionsController::class, "update"]);
 
 Route::get('/delete/{id}', [PromotionsController::class, "destroy"]);
 
+Route::post('/ajax_search',[PromotionsController::class, "ajax_search"])->name('ajax_search_promo');
 
 // routes de pages
 Route::get('/', [PromotionsController::class, 'index']);

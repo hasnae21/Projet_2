@@ -12,10 +12,10 @@ class PromotionsController extends Controller
     public function index()
     {
         // afichage des donnees 
-        $promos = Promotion::all();
+        $promos = Promotion::select("*")->orderby("id","ASC")->paginate(10);
         return view(
             'index',
-            compact("promos")
+            ['promos'=>$promos]
         );
     }
 
@@ -54,7 +54,7 @@ class PromotionsController extends Controller
             ->get();
         return view(
             'edit',
-            compact('promoid')
+            ['promoid'=>$promoid]
         );
     }
 
@@ -66,4 +66,18 @@ class PromotionsController extends Controller
 
         return redirect('/');
     }
+
+    // Rechercher
+    public function ajax_search(Request $request)
+    {
+        if($request->ajax()){
+            $search_promo =$request->search_promo;
+            $data=Promotion::where("name","like","%($search_promo)%")->orderby("id","ASC")->paginate(1);
+            return view('ajax_search',['data'=>$data]);
+        }
+    }
+
+
+
+
 }
