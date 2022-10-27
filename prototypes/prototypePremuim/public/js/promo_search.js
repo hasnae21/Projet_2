@@ -8,7 +8,7 @@ $(document).ready(function () {
             type: 'post',
             datatype: 'html',
             cache: false,
-            data: { searchbypromoname: searchbypromoname, "_token": "{{csrf_token()}}" },
+            data: { searchbypromoname: searchbypromoname, '_token': "{{csrf_token()}}"},
             success: function (data) {
                 $("#ajax_search_result").html(data);
             },
