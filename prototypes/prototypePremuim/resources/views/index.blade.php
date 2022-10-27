@@ -12,6 +12,7 @@ Home
 <div id="ajax_search_result">
 
     <table border="1px">
+        @if(!@empty($data))
         <thead>
             <tr>
                 <!-- <th>##</th> -->
@@ -22,7 +23,6 @@ Home
         </thead>
         <tbody>
             
-            @if(!@empty($data))
             @php $i=1; @endphp
                 @foreach ($data as $value)
 
@@ -32,6 +32,7 @@ Home
                     <td>{{$value->name}}</td>
                     <td>
                         <a href="edit_form/{{$value->id}}">Modifier</a>
+                        
                         <a href="delete/{{$value->id}}">Supprimer</a>
                     </td>
                 </tr>
@@ -39,14 +40,13 @@ Home
                 @php $i++; @endphp
                 @endforeach
 
-                @else
-                @endif
-
-
+                
             </tbody>
+            @else
+            @endif
         </table>
+        
         <br>
         {{ $data->links() }}
-
 </div>
 @endsection

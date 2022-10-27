@@ -44,7 +44,7 @@ class PromotionsController extends Controller
     {
         Promotion::where('id', $id)
             ->update([
-                'name' => $request->input
+                'name' => $request->updt
             ]);
 
         return redirect('/');
@@ -57,7 +57,7 @@ class PromotionsController extends Controller
 
         return view(
             'edit',
-            ['promoid'=>$promo_id]
+            ['promo_id'=>$promo_id]
         );
     }
 
