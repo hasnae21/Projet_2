@@ -1,21 +1,9 @@
-<html>
-    <head>
-        <script src="{{asset('js/jquery-3.6.1.min.js')}}"></script>
-        <script src="{{asset('js/search_ajax.js')}}"></script>
-    </head>
-    <body>
-        <p>
-            <a href="add_form">Ajouter une promotion</a>
-            <input type="text" name="" id="search_promo" placeholder="Rechercher une promotion">
-        </p>
-
-<div id="ajax_search_result">
 
 
         <table border="1px">
             <thead>
                 <tr>
-                    <th>id</th>
+                    <th>#</th>
                     <th>nom de la promotion</th>
                     <th colspan="2">actions</th>
                 </tr>
@@ -35,8 +23,3 @@
                 @endforeach
             </tbody>
         </table>
-        
-        
-    </div>
-    </body>
-</html>
