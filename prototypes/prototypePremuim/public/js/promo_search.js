@@ -1,14 +1,14 @@
 $(document).ready(function () {
-
     $(document).on('input', "#searchbypromoname", function () {
-        var search_promo = $(this).val();
+        var searchbypromoname=$(this).val();
+        // alert('test')
 
         jQuery.ajax({
-            url: "{{ route('ajax_search_promo') }}",
+            url:"{{route('promo_search')}}",
             type: 'post',
             datatype: 'html',
             cache: false,
-            data: { search_promo: search_promo, "_token": "{{csrf_token()}}" },
+            data: { searchbypromoname: searchbypromoname, "_token": "{{csrf_token()}}" },
             success: function (data) {
                 $("#ajax_search_result").html(data);
             },
@@ -18,7 +18,5 @@ $(document).ready(function () {
         });
 
     });
-
-
 
 });

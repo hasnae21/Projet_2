@@ -21,7 +21,7 @@
 </footer>
 
 <script src="{{asset('js/jquery-3.6.1.min.js')}}"></script>
-<script src="{{asset('js/search_ajax.js')}}"></script>
+<script src="{{asset('js/promo_search.js')}}"></script>
 <!-- <script src="{{asset('js/bootstrap.min.js')}}"></script> -->
 
 
