@@ -9,7 +9,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($promos as $value)
+                @foreach ($data as $value)
 
                 <tr>
                     <td>{{$value->id}}</td>

@@ -1,5 +1,9 @@
-<html>
-<body>
+@extends('main')
+@section('title')
+Update Promotion 
+@endsection
+
+@section('content')
 
 @foreach ($promoid as $value)
 
@@ -13,5 +17,4 @@
 
 @endforeach
     
-</body>
-</html>
+@endsection

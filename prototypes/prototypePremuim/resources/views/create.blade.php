@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+@extends('main')
+@section('title')
+New Promotion 
+@endsection
 
-</head>
-<body>
+@section('content')
     <form action="/add" method="POST">
         @csrf
         <input type="text" name="new">
         <button >Ajouter</button>
     </form>
-</body>
-</html>
+@endsection

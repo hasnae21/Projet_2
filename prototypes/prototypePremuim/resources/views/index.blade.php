@@ -1,30 +1,34 @@
-<html>
-    <head>
-        <script src="{{asset('js/jquery-3.6.1.min.js')}}"></script>
-        <script src="{{asset('js/search_ajax.js')}}"></script>
-    </head>
-    <body>
-        <p>
-            <a href="add_form">Ajouter une promotion</a>
-            <input type="text" name="" id="search_promo" placeholder="Rechercher une promotion">
-        </p>
+@extends('main')
+@section('title')
+Home
+@endsection
+
+@section('content')
+<p>
+    <a href="add_form">Ajouter une promotion</a>
+    <input type="text" name="" id="search_promo" placeholder="Rechercher une promotion">
+</p>
 
 <div id="ajax_search_result">
 
+    <table border="1px">
+        <thead>
+            <tr>
+                <!-- <th>##</th> -->
+                <th>#</th>
+                <th>nom de la promotion</th>
+                <th colspan="2">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            @if(!@empty($data))
+            @php $i=1; @endphp
+                @foreach ($data as $value)
 
-        <table border="1px">
-            <thead>
                 <tr>
-                    <th>id</th>
-                    <th>nom de la promotion</th>
-                    <th colspan="2">actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($promos as $value)
-
-                <tr>
-                    <td>{{$value->id}}</td>
+                    <!-- <td>{{$value->id}}</td> -->
+                    <td>{{$i}}</td>
                     <td>{{$value->name}}</td>
                     <td>
                         <a href="edit_form/{{$value->id}}">Modifier</a>
@@ -32,11 +36,17 @@
                     </td>
                 </tr>
 
+                @php $i++; @endphp
                 @endforeach
+
+                @else
+                @endif
+
+
             </tbody>
         </table>
-        
-        
-    </div>
-    </body>
-</html>
+        <br>
+        {{ $data->links() }}
+
+</div>
+@endsection

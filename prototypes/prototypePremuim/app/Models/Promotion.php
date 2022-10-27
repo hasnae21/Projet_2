@@ -12,7 +12,7 @@ class Promotion extends Model
 
     // use HasFactory;
 
-    protected $promo = "promotions";
+    protected $table = "promotions";
     protected $colone = [
         'name'
     ];

@@ -12,12 +12,13 @@ class PromotionsController extends Controller
     public function index()
     {
         // afichage des donnees 
-        $promos = Promotion::select("*")
+        $data = Promotion::select("*")
             ->orderby("id","ASC")
             ->paginate(10);
+
         return view(
             'index',
-            ['promos'=>$promos]
+            ['data'=>$data]
         );
     }
     public function store(Request $request)
@@ -51,11 +52,12 @@ class PromotionsController extends Controller
 
     public function edit($id)
     {
-        $promoid = Promotion::where('id', $id)
+        $promo_id = Promotion::where('id', $id)
             ->get();
+
         return view(
             'edit',
-            ['promoid'=>$promoid]
+            ['promoid'=>$promo_id]
         );
     }
 
@@ -73,11 +75,15 @@ class PromotionsController extends Controller
     {
         if($request->ajax()){
             $search_promo =$request->search_promo;
-            $data=Promotion::where("name","like","%($search_promo)%")
+
+            $data = Promotion::where("name","like","%($search_promo)%")
                 ->orderby("id","ASC")
                 ->paginate(1);
 
-            return view('ajax_search',['data'=>$data]);
+            return view(
+                'ajax_search',
+                ['data'=>$data]
+            );
         }
     }
 
