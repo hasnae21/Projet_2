@@ -35,7 +35,7 @@ class PromotionsController extends Controller
         $promo
             ->save();
 
-        return redirect('/')->with(['success'=>'La promotion est bien ajouter']);
+        return redirect('/')->with(['success'=>'Promotion ajouter']);
     }
 
     // modifier Promotion
@@ -56,7 +56,7 @@ class PromotionsController extends Controller
                 'name' => $request->updt
             ]);
 
-        return redirect('/')->with(['success'=>'updated successfully']);
+        return redirect('/')->with(['success'=>'Promotion modifier']);
     }
 
     // suprimer Promotion
@@ -65,7 +65,7 @@ class PromotionsController extends Controller
         Promotion::where('id', $id)
             ->delete();
 
-        return redirect('/')->with(['succes'=>'deleted successfully']);
+        return redirect('/')->with(['success'=>'Promotion suprimer']);
     }
 
     // Rechercher Promotion
