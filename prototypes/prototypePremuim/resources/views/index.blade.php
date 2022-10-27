@@ -6,8 +6,17 @@ Home
 @section('content')
 
 @if(Session::has('success'))
+
 <div class="alert" role="alert">
 {{ Session::get('success') }}
+</div>
+
+@endif
+
+@if(Session::has('error'))
+
+<div class="error" role="error">
+{{ Session::get('error') }}
 </div>
 
 @endif

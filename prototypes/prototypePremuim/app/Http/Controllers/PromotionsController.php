@@ -19,6 +19,12 @@ class PromotionsController extends Controller
             ['data'=>$data]
         );
     }
+
+    public function create()
+    {
+        return view('create');
+    }
+    
     public function store(Request $request)
     {
         $promo = new Promotion();
@@ -29,11 +35,6 @@ class PromotionsController extends Controller
             ->save();
 
         return redirect('/')->with(['succes'=>'Added successfully']);
-    }
-
-    public function create()
-    {
-        return view('create');
     }
 
     // modifier Promotion
@@ -54,7 +55,7 @@ class PromotionsController extends Controller
                 'name' => $request->updt
             ]);
 
-        return redirect('/')->with(['succes'=>'updated successfully']);
+        return redirect('/')->with(['success'=>'updated successfully']);
     }
 
     // suprimer Promotion

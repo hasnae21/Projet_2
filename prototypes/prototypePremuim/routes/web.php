@@ -18,9 +18,7 @@ use App\Http\Controllers\TutorialController;
 // routes de redirection et de function
 Route::post('add', [PromotionsController::class, "store"]);
 Route::post('/update/{id}', [PromotionsController::class, "update"]);
-
 Route::get('/delete/{id}', [PromotionsController::class, "destroy"]);
-
 Route::post('/ajax_search',[PromotionsController::class, "ajax_search"])->name('ajax_search_promo');
 
 
@@ -28,5 +26,4 @@ Route::post('/ajax_search',[PromotionsController::class, "ajax_search"])->name('
 // routes de pages
 Route::get('/', [PromotionsController::class, 'index']);
 Route::get('/add_form', [PromotionsController::class, 'create']);
-
 Route::get('/edit_form/{id}', [PromotionsController::class, "edit"]);
