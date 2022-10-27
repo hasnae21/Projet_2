@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
     $(document).on('input', "#searchbypromoname", function () {
         var searchbypromoname=$(this).val();
         // alert('test')
