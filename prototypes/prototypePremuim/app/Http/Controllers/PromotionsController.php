@@ -11,7 +11,6 @@ class PromotionsController extends Controller
 
     public function index()
     {
-        // afichage des donnees 
         $data = Promotion::select("*")
             ->orderby("id","ASC")
             ->paginate(10);
@@ -30,26 +29,15 @@ class PromotionsController extends Controller
         $promo
             ->save();
 
-        return redirect('/');
+        return redirect('/')->with(['succes'=>'added successfully']);
     }
 
     public function create()
     {
-        // creation des donnees 
         return view('create');
     }
 
-    // modifier
-    public function update(Request $request, $id)
-    {
-        Promotion::where('id', $id)
-            ->update([
-                'name' => $request->updt
-            ]);
-
-        return redirect('/');
-    }
-
+    // modifier Promotion
     public function edit($id)
     {
         $promo_id = Promotion::where('id', $id)
@@ -60,17 +48,26 @@ class PromotionsController extends Controller
             ['promo_id'=>$promo_id]
         );
     }
+    public function update(Request $request, $id)
+    {
+        Promotion::where('id', $id)
+            ->update([
+                'name' => $request->updt
+            ]);
 
-    // suprimer
+        return redirect('/')->with(['succes'=>'updated successfully']);
+    }
+
+    // suprimer Promotion
     public function destroy($id)
     {
         Promotion::where('id', $id)
             ->delete();
 
-        return redirect('/');
+        return redirect('/')->with(['succes'=>'deleted successfully']);
     }
 
-    // Rechercher
+    // Rechercher Promotion
     public function ajax_search(Request $request)
     {
         if($request->ajax()){
@@ -86,7 +83,6 @@ class PromotionsController extends Controller
             );
         }
     }
-
 
 
 
