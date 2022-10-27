@@ -4,6 +4,14 @@ Home
 @endsection
 
 @section('content')
+
+@if(Session::has('success'))
+<div class="alert" role="alert">
+{{ Session::get('success') }}
+</div>
+
+@endif
+
 <p>
     <a href="add_form">Ajouter une promotion</a>
     <input type="text" name="" id="search_promo" placeholder="Rechercher une promotion">

@@ -12,7 +12,6 @@ class PromotionsController extends Controller
     public function index()
     {
         $data = Promotion::select("*")
-            ->orderby("id","ASC")
             ->paginate(10);
 
         return view(
@@ -29,7 +28,7 @@ class PromotionsController extends Controller
         $promo
             ->save();
 
-        return redirect('/')->with(['succes'=>'added successfully']);
+        return redirect('/')->with(['succes'=>'Added successfully']);
     }
 
     public function create()
@@ -74,7 +73,6 @@ class PromotionsController extends Controller
             $search_promo =$request->search_promo;
 
             $data = Promotion::where("name","like","%($search_promo)%")
-                ->orderby("id","ASC")
                 ->paginate(1);
 
             return view(

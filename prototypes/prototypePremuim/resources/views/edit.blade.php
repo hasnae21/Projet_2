@@ -8,7 +8,7 @@ Update Promotion
 @foreach ($promo_id as $value)
 
     <form action="{{url('update')}}/{{$value->id}}" method="POST">
-        @csrf
+    @csrf
 
         <input type="text" value="{{$value->name}}" name="updt">
         <button >Ajouter</button>

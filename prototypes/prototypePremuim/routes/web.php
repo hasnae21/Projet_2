@@ -25,8 +25,6 @@ Route::post('/ajax_search',[PromotionsController::class, "ajax_search"])->name('
 
 
 
-
-
 // routes de pages
 Route::get('/', [PromotionsController::class, 'index']);
 Route::get('/add_form', [PromotionsController::class, 'create']);
