@@ -14,10 +14,11 @@ Home
 @endif
 <!--  -->
 
-<p>
+<div>
     <a href="add_form">Ajouter une promotion</a>
-    <input type="text" name="" id="search_promo" placeholder="Rechercher une promotion">
-</p>
+    <input type="text" name="" id="searchbypromoname" placeholder="Rechercher par nom de promotion">
+</div>
+<br>
 
 <div id="ajax_search_result">
 

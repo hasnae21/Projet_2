@@ -9,12 +9,11 @@ Update Promotion
 
     <form action="{{url('update')}}/{{$value->id}}" method="POST">
     @csrf
-
         <input type="text" value="{{$value->name}}" name="updt">
         <button >Ajouter</button>
-        
     </form>
 
 @endforeach
-    
+
+
 @endsection

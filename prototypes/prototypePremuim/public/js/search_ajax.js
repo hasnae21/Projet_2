@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $(document).on('input', "#search_promo", function () {
+    $(document).on('input', "#searchbypromoname", function () {
         var search_promo = $(this).val();
 
         jQuery.ajax({
