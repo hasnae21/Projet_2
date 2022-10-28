@@ -16,15 +16,23 @@ use Illuminate\Http\Request;
 |
 */
 
+//route promoton
 // routes de redirection et de function
 Route::post('add', [PromotionsController::class, "store"]);
 Route::post('/update/{id}', [PromotionsController::class, "update"]);
 Route::get('/delete/{id}', [PromotionsController::class, "destroy"]);
-
-// Route::post('/promo_search',[PromotionsController::class, " "])->name('promo_search');
 Route::get('search',[PromotionsController::class,'search']);
 
 // routes de pages
 Route::get('/', [PromotionsController::class, 'index']);
 Route::get('/add_form', [PromotionsController::class, 'create']);
 Route::get('/edit_form/{id}', [PromotionsController::class, "edit"]);
+
+
+
+//route ampprenant
+Route::get('/Create/{id}',[ApprenantsController::class,'Create']);
+Route::post('/Ajouter',[ApprenantsController::class,'Ajouter']);
+Route::get('/Edit/{id}',[ApprenantsController::class,'Edit']);
+Route::post('/Modifier/{id}',[ApprenantsController::class,'Modifier']);
+Route::get('/Suprimer/{id}',[ApprenantsController::class,'Supprimer']);
