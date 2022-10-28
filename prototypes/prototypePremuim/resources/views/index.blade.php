@@ -5,7 +5,6 @@ Home
 
 @section('content')
 
-
 <!-- message de validation -->
 @if(Session::has('success'))
 <div role="alert">
@@ -15,51 +14,56 @@ Home
 <!--  -->
 
 <div>
+<h1>Table promotions</h1>
     <a href="add_form">Ajouter une promotion</a>
-    <input type="text" name="" id="searchbypromoname" placeholder="Rechercher par nom de promotion">
+    <input type="text" id="searchbypromoname" placeholder="Rechercher une promotion">
 </div>
-<br>
 
 <div id="ajax_search_result">
 
     <table border="1px">
-        @if(!@empty($data))
         <thead>
             <tr>
-                <!-- <th>##</th> -->
                 <th>#</th>
                 <th>nom de la promotion</th>
                 <th colspan="2">actions</th>
             </tr>
         </thead>
-        <tbody>
-            
+        <tbody  id="tbody">
+
+            @if(!@empty($data))
             @php $i=1; @endphp
-                @foreach ($data as $value)
+            @foreach ($data as $value)
 
-                <tr>
-                    <!-- <td>{{$value->id}}</td> -->
-                    <td>{{$i}}</td>
-                    <td>{{$value->name}}</td>
-                    <td>
-                        <a href="edit_form/{{$value->id}}">Modifier</a>
-                        
-                        <a href="delete/{{$value->id}}">Supprimer</a>
-                    </td>
-                </tr>
+            <tr>
+                <!-- <td>{{$value->id}}</td> -->
+                <td>{{$i}}</td>
+                <td>{{$value->name}}</td>
+                <td>
+                    <a href="edit_form/{{$value->id}}">Modifier</a>
 
-                @php $i++; @endphp
-                @endforeach
+                    <a href="delete/{{$value->id}}">Supprimer</a>
+                </td>
+            </tr>
 
-                
-            </tbody>
-            @else
+            @php $i++; @endphp
+            @endforeach
             @endif
-        </table>
-        
-        <br>
-        {{ $data->links() }}
+
+
+        </tbody>
+    </table>
+
+    <br>
+    {{ $data->links() }}
+
+    <!--  -->
+
 </div>
+
 @endsection
 
-<!--  -->
+
+@section('script')
+<script src="{{asset('js/promo_search.js')}}"></script>
+@endsection

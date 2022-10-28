@@ -17,7 +17,7 @@ class PromotionsController extends Controller
 
         return view(
             'index',
-            ['data'=>$data]
+            ['data' => $data]
         );
     }
 
@@ -35,7 +35,7 @@ class PromotionsController extends Controller
         $promo
             ->save();
 
-        return redirect('/')->with(['success'=>'Promotion ajouter']);
+        return redirect('/')->with(['success' => 'Promotion ajouter']);
     }
 
     // modifier Promotion
@@ -46,7 +46,7 @@ class PromotionsController extends Controller
 
         return view(
             'edit',
-            ['promo_id'=>$promo_id]
+            ['promo_id' => $promo_id]
         );
     }
     public function update(Request $request, $id)
@@ -56,7 +56,7 @@ class PromotionsController extends Controller
                 'name' => $request->updt
             ]);
 
-        return redirect('/')->with(['success'=>'Promotion modifier']);
+        return redirect('/')->with(['success' => 'Promotion modifier']);
     }
 
     // suprimer Promotion
@@ -65,22 +65,36 @@ class PromotionsController extends Controller
         Promotion::where('id', $id)
             ->delete();
 
-        return redirect('/')->with(['success'=>'Promotion suprimer']);
+        return redirect('/')->with(['success' => 'Promotion suprimer']);
     }
 
     // Rechercher Promotion
-    public function ajax_search(Request $request)
+    public function search(Request $request)
     {
-        if($request->ajax()){
-            $search_promo =$request->search_promo;
+        if ($request->ajax()) {
 
-            $data = Promotion::where("name","like","%($search_promo)%")
-                ->paginate(1);
+            $input = $request->key;
+            $output = "";
+            $Promotion = Promotion::where('name', 'like', '%' . $input . "%")
+                ->get();
 
-            return view(
-                'ajax_search',
-                ['data'=>$data]
-            );
+            if ($Promotion) {
+                foreach ($Promotion as $value) {
+
+                    $output .= '
+                    <tr>
+                        <td>' . $value->id . '</td>
+                        <td>' . $value->name. '</td>
+                        <td>
+                        <a href="edit_form/'.$value->id.'">Modifier</a>
+
+                        <a href="delete/'.$value->id.'">Supprimer</a>
+                        <td>
+                    </tr>';
+                }
+
+                return Response($output);
+            }
         }
     }
 
