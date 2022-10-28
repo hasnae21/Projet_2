@@ -17,6 +17,6 @@ class Apprenant extends Model
         'nom',
         'prenom',
         'email',
-        'promot_id',
+        'promo_id',
     ];
 }

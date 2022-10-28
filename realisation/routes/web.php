@@ -31,8 +31,8 @@ Route::get('/edit_form/{id}', [PromotionsController::class, "edit"]);
 
 
 //route ampprenant
-Route::get('/Create/{id}',[ApprenantsController::class,'Create']);
-Route::post('/Ajouter',[ApprenantsController::class,'Ajouter']);
-Route::get('/Edit/{id}',[ApprenantsController::class,'Edit']);
-Route::post('/Modifier/{id}',[ApprenantsController::class,'Modifier']);
-Route::get('/Suprimer/{id}',[ApprenantsController::class,'Supprimer']);
+// Route::get('/Create/{id}',[ApprenantsController::class,'Create']);
+// Route::post('/Ajouter',[ApprenantsController::class,'Ajouter']);
+// Route::get('/Edit/{id}',[ApprenantsController::class,'Edit']);
+// Route::post('/Modifier/{id}',[ApprenantsController::class,'Modifier']);
+// Route::get('/Suprimer/{id}',[ApprenantsController::class,'Supprimer']);
