@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Promotion;
+use App\Models\Apprenant;
+
 use App\Http\Requests\CreatePrmotionRequest;
 
 
 class PromotionsController extends Controller
 {
+
+
 
     public function index()
     {
@@ -21,11 +25,15 @@ class PromotionsController extends Controller
         );
     }
 
+
     public function create()
     {
-        return view('create');
+        return view('promotion.create');
     }
 
+
+
+    //ajouter Promotion
     public function store(CreatePrmotionRequest $request)
     {
         $promo = new Promotion();
@@ -38,17 +46,27 @@ class PromotionsController extends Controller
         return redirect('/')->with(['success' => 'Promotion ajouter']);
     }
 
+
+
+
     // modifier Promotion
     public function edit($id)
     {
-        $promo_id = Promotion::where('id', $id)
+        $promotion = Promotion::where('id', $id)
+            ->get();
+
+        $apprenant = Apprenant::where('promo_id', $id)
+            ->join('promotions', 'apprenants.promo_id', 'promotions.id')
             ->get();
 
         return view(
-            'edit',
-            ['promo_id' => $promo_id]
+            'promotion.edit',
+            ['promotion' => $promotion],
+            ['apprenant' => $apprenant]
         );
     }
+
+
     public function update(Request $request, $id)
     {
         Promotion::where('id', $id)
@@ -59,6 +77,9 @@ class PromotionsController extends Controller
         return redirect('/')->with(['success' => 'Promotion modifier']);
     }
 
+
+
+
     // suprimer Promotion
     public function destroy($id)
     {
@@ -67,6 +88,9 @@ class PromotionsController extends Controller
 
         return redirect('/')->with(['success' => 'Promotion suprimer']);
     }
+
+
+
 
     // Rechercher Promotion
     public function search(Request $request)
@@ -84,11 +108,11 @@ class PromotionsController extends Controller
                     $output .= '
                     <tr>
                         <td>' . $value->id . '</td>
-                        <td>' . $value->name. '</td>
+                        <td>' . $value->name . '</td>
                         <td>
-                        <a href="edit_form/'.$value->id.'">Modifier</a>
+                            <a href="edit_form/'. $value->id .'">Modifier</a>
 
-                        <a href="delete/'.$value->id.'">Supprimer</a>
+                            <a href="delete/'. $value->id .'">Supprimer</a>
                         <td>
                     </tr>';
                 }
@@ -97,7 +121,5 @@ class PromotionsController extends Controller
             }
         }
     }
-
-
 
 }

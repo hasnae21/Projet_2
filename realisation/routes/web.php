@@ -16,23 +16,29 @@ use Illuminate\Http\Request;
 |
 */
 
-//route promoton
-// routes de redirection et de function
+//route promotion
 Route::post('add', [PromotionsController::class, "store"]);
+
 Route::post('/update/{id}', [PromotionsController::class, "update"]);
 Route::get('/delete/{id}', [PromotionsController::class, "destroy"]);
+
 Route::get('search',[PromotionsController::class,'search']);
 
-// routes de pages
 Route::get('/', [PromotionsController::class, 'index']);
+
 Route::get('/add_form', [PromotionsController::class, 'create']);
-Route::get('/edit_form/{id}', [PromotionsController::class, "edit"]);
+Route::get('/edit_form/{id}', [PromotionsController::class, "edit"]);   //page de liste des promo
 
 
 
 //route ampprenant
-// Route::get('/Create/{id}',[ApprenantsController::class,'Create']);
-// Route::post('/Ajouter',[ApprenantsController::class,'Ajouter']);
-// Route::get('/Edit/{id}',[ApprenantsController::class,'Edit']);
-// Route::post('/Modifier/{id}',[ApprenantsController::class,'Modifier']);
-// Route::get('/Suprimer/{id}',[ApprenantsController::class,'Supprimer']);
+Route::post('adds',[ApprenantsController::class,'store']);
+
+Route::post('/updates/{id}',[ApprenantsController::class,'update']);
+Route::get('/deletes/{id}',[ApprenantsController::class,'destroy']);
+
+Route::get('searchs',[apprenantController::class,'search']);
+
+Route::get('/add_forms/{id}',[ApprenantsController::class,'create']);
+Route::get('/edit_forms/{id}',[ApprenantsController::class,'edit']);   //page modifier apprenant
+

@@ -2,81 +2,136 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Promotion;
-use App\Models\Apprenant;
 use Illuminate\Http\Request;
 
-class promotionController extends Controller
+
+use App\Models\Promotion;
+use App\Models\Apprenant;
+
+class ApprenantsController extends Controller
 {
-    public function Afficher(){
-        $promotion = Promotion::all();
-        return view('promotion.index',compact('promotion'));
+
+    //ajouter apprenant
+    public function create($id)
+    {
+        return view('apprenant.create', compact('id'));
     }
 
-    public function Create(){
 
-        return view('promotion.create');
 
-    }
 
-    public function Ajouter(request $request){
-            Promotion::create([
-            'nom'=>$request->name
+    //ajouter Promotion
+    public function store(request $request)
+    {
+        Apprenant::create([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'email' => $request->email,
+            'promo_id' => $request->promo_id,
         ]);
-        return redirect('index');
-    }
 
-    public function Edit($id){
-        $promotion=Promotion::where('id_promotion',$id)
-        ->get();
-        $apprenant = Apprenant::where('promot_id',$id)
-        ->join('promotion','apprenant.promot_id','promotion.id_promotion')
-        ->get();
-        return view('promotion.edit', compact('promotion','apprenant'));
+        return  redirect(url('edit_forms/' . $request->promo_id));  ///edit_form promo
     }
 
 
-    public function Modifier(request $request , $id){
-        Promotion::where('id_promotion',$id)
-        ->update([
-            'nom'=>$request->name
-        ]);
-        return redirect(url('edit/'.$id));
+
+
+    // modifier Apprenant
+    public function edit($id)
+    {
+        $apprenant = Apprenant::where('id', $id)
+            ->get();
+
+        return view('apprenant.edit', compact('apprenant'));
     }
 
 
-    public function Supprimer($id){
-        Promotion::where('id_promotion',$id)
-        ->delete();
-        return redirect('index');
+    public function update(Request $request, $id)
+    {
+        Apprenant::where('id', $id)
+            ->update([
+                'nom' => $request->nom,
+                'prenom' => $request->prenom,
+                'email' => $request->email,
+                'promo_id' => $request->promo_id,
+            ]);
+
+        return redirect(url('edit_forms/' . $request->promo_id));  ///edit_form apprenants
     }
 
-    public function search(Request $request){
-        if($request->ajax()){
+
+
+
+    //supprmer Apprenant
+    public function destroy($id)
+    {
+        Apprenant::where('id', $id)
+            ->delete();
+
+        return back();
+    }
+
+
+
+
+    // Rechercher Apprenant
+    public function search(Request $request)
+    {
+        if ($request->ajax()) {
+
             $input = $request->key;
-        $output="";
-        $Promotion= Promotion::where('nom','like',$input."%")
-        ->get();
-        if($Promotion)
-        {
-            foreach ($Promotion as $value) {
-            $urlEdit = (url('edit/'.$value->id_promotion));
-            $urlDelete = (url('suprimer/'.$value->id_promotion));
-        $output.='<tr>
+            $id = $request->id;
+            $output = "";
 
-        <td>'.$value->id_promotion.'</td>
-        <td>'.$value->nom.'</td>
+            $apprenant = Apprenant::where([
 
-        <td>
+                ["promo_id", '=', $id],
+                ['id', '=', $input],
+            ])
 
-        <a href='.$urlEdit.' class="edit" ><i class="material-icons"  title="Edit">&#xE254;</i></a>
-         <a href='.$urlDelete.' class="delete" ><i class="material-icons"  title="Delete">&#xE872;</i></a>
-        <td>
-        </tr>';
+                ->orWhere([
+                    ["promo_id", '=', $id],
+                    ['nom', 'like', $input . "%"]
+                ])
 
+                ->orWhere([
+                    ["promo_id", '=', $id],
+                    ['prenom', 'like', $input . "%"]
+                ])
+
+                ->orWhere([
+                    ["promo_id", '=', $id],
+                    ['email', 'like', $input . "%"]
+                ])
+
+                ->join('promotions', 'apprenants.promo_id', 'promotions.id')
+                ->get();
+
+
+            if ($apprenant) {
+                foreach ($apprenant as $value) {
+
+                    $output .= '
+                    <tr>
+                            <td>' . $value->id . '</td>
+                            <td>' . $value->nom . '</td>
+                            <td>' . $value->prenom . '</td>
+                            <td>' . $value->email . '</td>
+                            <td>
+                                    <a href="edit_form/' . $value->id . '">Modifier</a>
+
+                                    <a href="delete/' . $value->id . '" >Supprimer</a>
+                            <td>
+
+                    </tr>';
+                }
+
+                return Response($output);
+            }
+        }
     }
-      return Response($output);
-      }
-    }
-}
+
+
+
+
 }
