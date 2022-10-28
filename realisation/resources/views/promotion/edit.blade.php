@@ -17,6 +17,12 @@ Lste des Apprenents
 
 <h1>Table Apprenants</h1>
 <br>
+
+
+                  <input type="hidden" value="{{$value->id_promotion}}" id="IdKey"   class="form-control  searchInput" >
+                  <input type="text" id="search" class="form-control searchEdit searchInput" placeholder="Search&hellip;">
+
+<br>
 <table class="table table-hover">
     <thead>
         <tr>
