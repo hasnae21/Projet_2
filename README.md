@@ -9,7 +9,3 @@ Dans le but de simplifier la gestion des apprenants aux formateurs de Solicode. 
 
 ## Présentation de projet
 > https://docs.google.com/presentation/d/1201o5puTsGhRq6v7y-tfDd_2lQZnIGC6BI6izXmRJUs/edit?usp=sharing
-
-
-## Home page
-![image](https://user-images.githubusercontent.com/92023794/196163027-ea982813-3669-47ac-8cc9-dfba4da11c62.png)
